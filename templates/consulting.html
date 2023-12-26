@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/consulting.css">
+    <script>
+        function submitInfo() {
+            // Get user input
+            var industryType = document.getElementById("industry-type").value;
+            var manufacturingProduct = document.getElementById("manufacturing-product").value;
+
+            // Validate input
+            if (industryType.trim() === "" || manufacturingProduct.trim() === "") {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Determine consulting recommendations
+            var consultingRecommendations = determineConsultingRecommendations(industryType, manufacturingProduct);
+
+            // Display the result
+            var resultMessage = "Based on your input, we recommend the following consulting services:\n\n" +
+                                consultingRecommendations.join("\n");
+            alert(resultMessage);
+        }
+
+        function determineConsultingRecommendations(industryType, manufacturingProduct) {
+            // Customize this function based on your business logic to determine consulting recommendations
+            var recommendations = [];
+
+            if (industryType.toLowerCase() === "product-based") {
+                recommendations.push("Product Development Strategy Consulting");
+                recommendations.push("Supply Chain Optimization Consulting");
+            } else {
+                recommendations.push("General Business Strategy Consulting");
+                recommendations.push("Market Entry Consulting");
+            }
+
+            // You can add more specific recommendations based on manufacturingProduct, etc.
+
+            return recommendations;
+        }
+    </script>
+</head>
+<body>
+    <div class="consulting-container">
+        <h1>Business Consulting Inquiry</h1>
+
+        <div class="consulting-aspect-container">
+            <label for="industry-type">Industry Type:</label>
+            <input type="text" id="industry-type" required>
+        </div>
+
+        <div class="consulting-aspect-container">
+            <label for="manufacturing-product">Manufacturing Product (if applicable):</label>
+            <input type="text" id="manufacturing-product" required>
+        </div>
+
+        <button type="button" onclick="submitInfo()">Submit</button>
+    </div>
+</body>
+</html>

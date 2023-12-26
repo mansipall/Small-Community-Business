@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/financial.css">
+    <script>
+        function calculateInvestment() {
+            // Get input values
+            var age = parseInt(document.getElementById("age").value);
+            var salary = parseFloat(document.getElementById("salary").value);
+            var expenses = parseFloat(document.getElementById("expenses").value);
+
+            // Validate input
+            if (isNaN(age) || isNaN(salary) || isNaN(expenses)) {
+                alert("Please enter valid numerical values.");
+                return;
+            }
+
+            // Calculate investment
+            var remainingMoney = salary - expenses;
+            var suggestedInvestment = calculateSuggestedInvestment(remainingMoney);
+
+            // Determine the recommended investment plan
+            var investmentPlan = determineInvestmentPlan(suggestedInvestment);
+
+            // Display the result
+            var resultMessage = "Based on your income and expenses, you can consider investing $" + suggestedInvestment.toFixed(2) +
+                                " this month. We recommend the " + investmentPlan + " investment plan.";
+            alert(resultMessage);
+        }
+
+        function calculateSuggestedInvestment(remainingMoney) {
+            // You can customize this function based on your financial planning rules
+            // For simplicity, let's suggest investing 20% of the remaining money
+            return 0.2 * remainingMoney;
+        }
+
+        function determineInvestmentPlan(suggestedInvestment) {
+            // Customize this function based on your criteria for recommending investment plans
+            if (suggestedInvestment < 500) {
+                return "Conservative";
+            } else if (suggestedInvestment < 1000) {
+                return "Balanced";
+            } else {
+                return "Aggressive";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Financial Planning Adviser</h1>
+    <form>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <label for="salary">Monthly Salary:</label>
+        <input type="number" id="salary" required>
+
+        <label for="expenses">Monthly Expenses:</label>
+        <input type="number" id="expenses" required>
+
+        <button type="button" onclick="calculateInvestment()">Calculate Investment</button>
+    </form>
+</body>
+</html>

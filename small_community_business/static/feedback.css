@@ -1,0 +1,89 @@
+/* Basic styling for the form container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0078d4;
+}
+
+/* Label and input field styles */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Star rating styles */
+#star-rating {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.star {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.star:hover:before {
+    content: '\2605'; /* Filled star symbol */
+}
+
+.star:before {
+    content: '\2606'; /* Empty star symbol */
+}
+
+input[type="hidden"] {
+    display: none;
+}
+
+/* Submit button styles */
+button[type="submit"] {
+    background-color: #0078d4;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0094ff;
+}
+
+button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}

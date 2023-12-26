@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="/static/feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Feedback</h1>
+        <div class="feedback-box">
+            <form method="post" action="{{ url_for('feedback') }}">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="message">Feedback Message:</label>
+                <textarea id="message" name="message" required></textarea><br>
+
+                <label for="rating">Rating:</label>
+                <div id="rating" class="star-rating"></div>
+                <input type="hidden" name="rating" id="feedback-rating" value="1"><br>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    
+    <script>
+        $(function () {
+            $("#rating").rateYo({
+                rating: 1,
+                starWidth: "25px",
+                spacing: "5px",
+                onChange: function (rating, rateYoInstance) {
+                    $("#feedback-rating").val(rating);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Community Business</title>
+    <link rel="stylesheet" type="text/css" href="/static/search.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Welcome to STARTEASE</h1>
+            <p>Your one-stop destination for local business support.</p>
+        </header>
+
+        <main>
+            <!-- Your main content goes here -->
+            <div class="search-container">
+                <h2>Search Results</h2>
+
+                <form action="templates/fetch_data.php" method="GET">
+                    <input type="text" name="search" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+                
+                
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Small Community Business. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
